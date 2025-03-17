@@ -404,7 +404,8 @@ def voice_conversion(
     inference_cfg_rate=1.0, 
     f0_condition=False, 
     auto_f0_adjust=False, 
-    semi_tone_shift=0
+    semi_tone_shift=0,
+    checkpoint_path=None
 ):
     class Args:
         def __init__(self):
@@ -417,7 +418,9 @@ def voice_conversion(
             self.f0_condition = f0_condition
             self.auto_f0_adjust = auto_f0_adjust
             self.semi_tone_shift = semi_tone_shift
-            self.fp16 = False  # Default value, change if needed
+            self.fp16 = False
+            self.checkpoint_path = checkpoint_path
 
     args = Args()
     main(args)
+
